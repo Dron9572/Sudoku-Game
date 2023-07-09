@@ -332,6 +332,13 @@ void Create_Map(char sq[13][9], char pole[])
 	errno_t err;
 	err = fopen_s(&fl, pole, "r");
 
+	if (err != 0)
+	{
+		printf("ERROR: File not found, check files and restart the program.\n\nPress \"Enter\" to continue");
+		_getch();
+		exit(1);
+	}
+
 	while (fgets(arr, 117, fl) != NULL)
 	{
 		for (int j = 0; j < 9; j++)
